@@ -1,0 +1,23 @@
+<h2 class="sign-title">Log into Your account</h2>
+<form id="sign-In-Form" ng-submit="signIn.signIn(signIn.email, signIn.password)" class="sign-box">
+    <div layout="column" layout-align="center">
+        <div class="sign-input-box">
+            <md-input-container class="md-block" flex-gt-xs>
+                <label>
+                    <md-icon class="material-icons">email</md-icon> E-mail address</label>
+                <input type="email" ng-model="signIn.email">
+            </md-input-container>
+            <md-input-container class="md-block" flex-gt-xs>
+                <label>
+                    <md-icon class="material-icons">lock</md-icon> Password</label>
+                <input type="password" ng-model="signIn.password">
+            </md-input-container>
+        </div>
+        <div layout="row">
+            <md-button class="btn btn-sign" type="submit"> Sign in </md-button>
+        </div>
+    </div>
+</form>
+<div class="sign-box sign-bottom-box">
+    New to us? <a ui-sref="sign-up">Sign Up</a>
+</div>

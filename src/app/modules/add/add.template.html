@@ -1,0 +1,55 @@
+<md-dialog>
+    <div class="panel-widget">
+        <h3>Add new task: </h2>
+	<form id="myForm" ng-submit="add.addTask()" class="md-whiteframe-4dp">				
+		<div layout="column">
+		<div layout="row">
+		<md-input-container>
+			<label>Add new task</label>
+			<input type="text" ng-model="add.newName">	
+		</md-input-container>
+		<md-input-container>
+			<label>Enter date</label> 
+			<md-datepicker ng-model="add.newDate" md-open-on-focus></md-datepicker>
+		</md-input-container>
+		<md-input-container>
+			<label>Add more details</label> 
+			<input type="text" ng-model="add.newInfo">	
+		</md-input-container> 
+		</div>	
+		
+		<!-- Upload Cropped Image -->
+		<div>
+		<input class="ng-hide" type="file" id="fileInput" accept=".jpg, .jpeg, .png">
+		<label for="fileInput" class="md-button md-raised">Select an image file</label>
+  		<!-- CropArea -->
+		<div id="cropArea" class="ng-hide" layout="row">
+  		<div class="cropArea">
+    		<img-crop image="myImage" result-image="myCroppedImage" area-type="square"></img-crop>
+  		</div>
+  		<div layout="column" layout-padding>
+  			<div >Cropped Image:</div>
+  			<div><img ng-src="{{myCroppedImage}}" /></div>
+			<md-button ng-click="add.cropImage()" class="md-raised md-primary" layout-padding>Crop image</md-button>
+		</div>
+		</div>
+		</div>
+		<!-- End CropArea -->
+		<div id="cropedImage" class="ng-hide" layout="row" layout-padding>
+			<div>Cropped Image: </div>
+			<div><img ng-src="{{add.newImage}}" class="cropped-image"/></div>	
+		</div>		
+
+		<!-- End Upload Cropped Image -->
+		
+		<div>
+			<md-button type="submit" class="btn btn-info">
+				<md-icon class="material-icons">add</md-icon>
+			</md-button>
+			<md-button ng-click="add.cancel()" class="btn btn-delete">Cancel</md-button>
+		</div>
+		</div>	
+	</form>	
+</div>
+
+</md-dialog>

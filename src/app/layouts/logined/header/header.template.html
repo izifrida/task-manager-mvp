@@ -1,0 +1,22 @@
+<div ng-controller="headerController as header">
+    <md-toolbar id="toolbar">
+        <div class="md-toolbar-tools">
+            <section layout="row" layout-align="center start" flex>
+                <div layout-align="start center" class="layout-fill layout-align-start-center">
+                    <span>
+                    <h3 md-truncate ui-sref="home"> My To Do List</h3>
+                    <h1> {{header.userEmail}} </h1>  
+                    </span>
+                </div>
+            </section>
+            <section layout="row" layout-align="end center" flex>
+                <form>
+                    <input placeholder="Search task..." type="text" ng-model="header.keyword" ng-model-options="{debounce : 1000}" ng-change='header.setKeyword()'>
+                </form>
+                <md-button class="btn btn-sign-out" ng-click="header.signOut()">
+                    <md-icon class="material-icons">exit_to_app </md-icon>
+                </md-button>
+            </section>
+        </div>
+    </md-toolbar>
+</div>

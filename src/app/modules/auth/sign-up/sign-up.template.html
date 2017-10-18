@@ -1,0 +1,29 @@
+<h2 class="sign-title">Register new Account</h2>
+<form name="signUpForm" id="sign-Up-Form" ng-submit="signUp.signUp(signUpForm.$valid)" class="sign-box">
+    <div layout="column">
+        <div class="sign-input-box">
+            <md-input-container class="md-block" flex-gt-xs>
+                <label>
+                    <md-icon class="material-icons">email</md-icon> E-mail address</label>
+                <input name="email" type="email" ng-model="signUp.email">
+            </md-input-container>
+            <md-input-container class="md-block" flex-gt-xs>
+                <label>
+                    <md-icon class="material-icons">lock</md-icon> Password</label>
+                <input name="password" type="password" ng-model="signUp.password">
+            </md-input-container>
+            <md-input-container class="md-block" flex-gt-xs>
+                <label>
+                    <md-icon class="material-icons">lock</md-icon> Confirm Password</label>
+                <input name="confirmPassword" type="password" ng-model="signUp.confirmPassword" compare-to="signUp.password">
+            </md-input-container>
+        </div>
+        <div class="sign-message"> {{signUp.message}} </div>
+        <div layout="row">
+            <md-button class="btn btn-sign" type="submit"> Sign up </md-button>
+        </div>
+    </div>
+</form>
+<div class="sign-box sign-bottom-box">
+    Already have account? <a ui-sref="sign-in">Sign In</a>
+</div>

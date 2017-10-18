@@ -1,0 +1,62 @@
+<md-dialog>
+	
+<div class="panel-widget">
+    <h3>Change the task: </h2>
+
+	<form id="myForm" ng-submit="edit.editTask(editingTask)" class="md-whiteframe-4dp">				
+		<div layout="row">
+		<md-input-container>
+			<label>Change task</label>
+			<input type="text" ng-model="edit.editingTask.name" required>	
+		</md-input-container>
+		<md-input-container>
+			<label>Change date</label> 
+			<md-datepicker ng-model="edit.editingTask.date" md-open-on-focus></md-datepicker>
+		</md-input-container>
+		<md-input-container>
+			<label>Change details</label> 
+			<input type="text" ng-model="edit.editingTask.info">	
+		</md-input-container> 
+		</div>	
+		<div>Task Image: </div>
+		<div id="taskImage" layout="row" layout-padding>
+			<div>
+			<md-button ng-click="edit.changeImage()" class="md-raised" layout-padding>Change Image</md-button>
+			</div>
+			<div><img ng-src="{{edit.editingTask.image ? edit.editingTask.image : '../../../assets/images/no-image-icon.png'}}" class="cropped-image"/></div>	
+			
+		</div>	
+
+		<!-- Upload Cropped Image -->
+		<div id="changeImage" class="ng-hide">
+			<input class="ng-hide" type="file" id="fileInput" accept=".jpg, .jpeg, .png">
+			<label for="fileInput" class="md-button md-raised">Select an image file</label>
+			<div  ng-click="edit.canselEditingImage()" class=" md-button md-raised" layout-padding>Cansel</div>
+  		<!-- CropArea -->
+			<div id="cropArea" class="ng-hide" layout="row">
+  			<div class="cropArea">
+    			<img-crop image="myImage" result-image="myCroppedImage" area-type="square"></img-crop>
+  			</div>
+  			<div layout="column" layout-padding>
+  				<div >Cropped Image:</div>
+  				<div><img ng-src="{{myCroppedImage}}" /></div>
+				<md-button ng-click="edit.cropImage()" class="md-raised md-primary" layout-padding>Crop image</md-button>
+			</div>
+			</div>
+		</div>	
+		
+
+		<div id="cropedImage" class="ng-hide" layout="row" layout-padding>
+			<div>Cropped Image: </div>
+			<div><img ng-src="{{edit.editingTask.image}}" clcropedImageass="cropped-image"/></div>	
+		</div>		
+
+
+		<div>
+			<md-button type="submit" class="btn btn-info">Ok</md-button>
+			<md-button ng-click="edit.cancel()" class="btn btn-delete">Cancel</md-button>	
+		</div>		
+	</form>	
+</div>
+
+</md-dialog>

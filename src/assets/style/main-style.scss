@@ -1,0 +1,174 @@
+// COLORS
+@import "colors.scss";
+
+//MAIN
+body {
+    font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    color: $text-color;
+}
+
+.main-page {
+    display: block;
+    background-color: #ECECEC 
+}
+
+.btn {
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+
+.ng-cloack {
+    display: none;
+}
+
+//AUTH
+.auth-page {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    background-color: $main-bg-color;
+}
+
+.auth-page-container {
+    width: 70%;
+    max-width: 400px;
+    height: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.sign-box {
+    display: block;
+    position: relative;
+    margin: 10px;
+    padding: 5px;
+    background-color: #fff;
+    box-sizing: inherit;
+    border-radius: 5px;
+}
+
+.sign-bottom-box {
+    padding: 10px;
+    text-align: center;
+}
+
+.sign-title {
+    color: #26A69A;
+    text-align: center;
+}
+
+.sign-input-box {
+    padding: 10px;
+    text-align: start;
+}
+
+.btn-sign {
+    min-width: 0;
+    background-color: $blue-color;
+    color: $main-bg-color;
+    width: 100%;
+}
+
+.sign-message {
+    color: rgb(221, 44, 0);
+    text-align: middle;
+    font-size: 1em;
+}
+
+//LOGINED
+.logined-page {
+    width: 100%;
+    height: 100vh;
+}
+
+#toolbar {
+    padding: 0.6em;
+    background-color: rgb(117, 117, 117);
+    color: rgba(255, 255, 255, 0.87);
+}
+
+#toolbar input{
+    background-color: rgba(255, 255, 255, 0.87);
+    
+}
+#toolbar input.empty {
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+}
+#side-toolbar {
+    padding: 0.3em;
+    background-color: rgba(255, 255, 255, 0.87);
+    color: rgb(117, 117, 117);
+    text-align: center;
+}
+
+#toolbar h3 {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+#toolbar h1,
+#side-toolbar h1 {
+    font-size: 0.7em;
+}
+
+.btn-search {
+    
+}
+
+.btn-sign-out {
+    background-color: rgb(224, 113, 109);
+    color: rgba(255, 255, 255, 0.87);
+}
+
+.panel-widget {
+    padding: 1em;  
+    margin: 8px;
+    background-color: white;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 2px 1px -1px rgba(0,0,0,.12);
+    h3 {
+        color: #2b2a2a;
+    }
+}
+//HOME'
+.btn-info,
+.btn-edit {
+    background-color: $blue-color;
+    color: #fff;
+}
+
+.btn-delete {
+    background-color: #FF9E80;
+    color: #2b2a2a;
+}
+
+.btn-add {
+    background-color: rgba(255, 255, 255, 0.87);
+    color: rgb(117, 117, 117);
+}
+
+.task-icon {
+    width: 50px;
+    height: 50px;
+}
+
+md-checkbox.md-checked.checkbox .md-icon {
+    background-color: $blue-color;
+}
+
+//CROP
+.cropped-image {
+    width: 150px;
+    height: 150px;
+}
+
+.cropArea {
+    background: #E4E4E4;
+    overflow: hidden;
+    width: 500px;
+    height: 350px;
+}
+
