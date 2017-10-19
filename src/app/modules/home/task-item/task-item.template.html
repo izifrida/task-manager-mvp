@@ -1,0 +1,27 @@
+<md-list-item>
+    <section layout="column" layout-fill>
+        <div layout="row">
+            <!-- <md-checkbox class="checkbox" ng-model="task.done" aria-label="Task Done"></md-checkbox> -->
+            <div layout-padding>
+                <img ng-src="{{itemCtrl.task.image ? itemCtrl.task.image : '../../../assets/images/no-image-icon.png'}}" class="task-icon">
+            </div>
+            <div>
+                <h3> {{itemCtrl.task.name}} </h3>
+                <p> {{itemCtrl.task.date | date: "dd MMMM yyyy"}} </p>
+            </div>
+        </div>
+        <span flex></span>
+        <div>
+            <md-button ng-click="itemCtrl.showInfo(itemCtrl.task)" class="btn btn-info">
+                <md-icon class="material-icons">info</md-icon>
+            </md-button>
+            <md-button ng-click='itemCtrl.editTask(event, itemCtrl.task)' class="btn btn-edit">
+                <md-icon class="material-icons">mode_edit</md-icon>
+            </md-button>
+            <md-button ng-click="itemCtrl.deleteTask()" class="btn btn-delete">
+                <md-icon class="material-icons">delete_forever</md-icon>
+            </md-button>
+        </div>
+    </section>
+    <md-divider></md-divider>
+</md-list-item>
