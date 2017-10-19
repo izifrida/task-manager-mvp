@@ -9,8 +9,7 @@
     function filterTasks() {
         return function(data, keyword) {
             var result = [];
-            console.log("keyword: ");
-            console.log(keyword);
+
             if (keyword) {
                 data.forEach(function(task) {
                     var name = task.name.toUpperCase();

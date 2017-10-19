@@ -8,7 +8,7 @@
             var userId;
             var ref;
             var tasks;
-            var keyword ="";
+            var keyword = "";
 
             return {
                 getTasks: getTasks,
@@ -46,11 +46,11 @@
 
             };
 
-            function setKeyword(word){
+            function setKeyword(word) {
                 keyword = word;
             };
 
-            function getKeyword(){
+            function getKeyword() {
                 return keyword;
             }
 

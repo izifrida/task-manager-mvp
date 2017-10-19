@@ -27,6 +27,7 @@ firebase.initializeApp(config);
             'signUp',
             'edit',
             'home',
+            'taskItem',
             'user',
             'templates'
         ]);

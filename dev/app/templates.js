@@ -23,6 +23,29 @@ try {
   module = angular.module('templates', []);
 }
 module.run(['$templateCache', function($templateCache) {
+  $templateCache.put('layouts/logined/logined.template.html',
+    '<div class="main-page">\n' +
+    '    <div layout="row">\n' +
+    '        <div class="logined-page">\n' +
+    '            <div>\n' +
+    '                <div ng-include="\'layouts/logined/header/header.template.html\'"></div>\n' +
+    '                <div layout-padding>\n' +
+    '                    <ui-view> </ui-view>\n' +
+    '                </div>\n' +
+    '            </div>\n' +
+    '        </div>\n' +
+    '    </div>\n' +
+    '</div>');
+}]);
+})();
+
+(function(module) {
+try {
+  module = angular.module('templates');
+} catch (e) {
+  module = angular.module('templates', []);
+}
+module.run(['$templateCache', function($templateCache) {
   $templateCache.put('modules/add/add.template.html',
     '<md-dialog>\n' +
     '    <div class="panel-widget">\n' +
@@ -79,29 +102,6 @@ module.run(['$templateCache', function($templateCache) {
     '</div>\n' +
     '\n' +
     '</md-dialog>');
-}]);
-})();
-
-(function(module) {
-try {
-  module = angular.module('templates');
-} catch (e) {
-  module = angular.module('templates', []);
-}
-module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('layouts/logined/logined.template.html',
-    '<div class="main-page">\n' +
-    '    <div layout="row">\n' +
-    '        <div class="logined-page">\n' +
-    '            <div>\n' +
-    '                <div ng-include="\'layouts/logined/header/header.template.html\'"></div>\n' +
-    '                <div layout-padding>\n' +
-    '                    <ui-view> </ui-view>\n' +
-    '                </div>\n' +
-    '            </div>\n' +
-    '        </div>\n' +
-    '    </div>\n' +
-    '</div>');
 }]);
 })();
 
@@ -188,33 +188,7 @@ module.run(['$templateCache', function($templateCache) {
   $templateCache.put('modules/home/home.template.html',
     '<div>\n' +
     '    <md-list class="panel-widget">\n' +
-    '        <md-list-item ng-repeat=\'task in home.tasks | filterTasks: home.keyword\'>\n' +
-    '            <section layout="column" layout-fill>\n' +
-    '                <div layout="row">\n' +
-    '                    <!-- <md-checkbox class="checkbox" ng-model="task.done" aria-label="Task Done"></md-checkbox> -->\n' +
-    '                    <div layout-padding>\n' +
-    '                        <img ng-src="{{task.image ? task.image : \'../../../assets/images/no-image-icon.png\'}}" class="task-icon">\n' +
-    '                    </div>\n' +
-    '                    <div>\n' +
-    '                        <h3> {{task.name}} </h3>\n' +
-    '                        <p> {{task.date | date: "dd MMMM yyyy"}} </p>\n' +
-    '                    </div>\n' +
-    '                </div>\n' +
-    '                <span flex></span>\n' +
-    '                <div>\n' +
-    '                    <md-button ng-click="home.showInfo(task)" class="btn btn-info">\n' +
-    '                        <md-icon class="material-icons">info</md-icon>\n' +
-    '                    </md-button>\n' +
-    '                    <md-button ng-click=\'home.editTask(event, task)\' class="btn btn-edit">\n' +
-    '                        <md-icon class="material-icons">mode_edit</md-icon>\n' +
-    '                    </md-button>\n' +
-    '                    <md-button ng-click="home.delateTask(task)" class="btn btn-delete">\n' +
-    '                        <md-icon class="material-icons">delete_forever</md-icon>\n' +
-    '                    </md-button>\n' +
-    '                </div>\n' +
-    '            </section>\n' +
-    '            <md-divider></md-divider>\n' +
-    '        </md-list-item>\n' +
+    '        <task-item ng-repeat=\'task in home.tasks | filterTasks: home.keyword\' task="task"></task-item>\n' +
     '    </md-list>\n' +
     '    <div layout="row" layout-align="end">\n' +
     '        <md-button ng-click="home.addTask(task)" class="btn btn-add">\n' +
@@ -329,5 +303,43 @@ module.run(['$templateCache', function($templateCache) {
     '<div class="sign-box sign-bottom-box">\n' +
     '    Already have account? <a ui-sref="sign-in">Sign In</a>\n' +
     '</div>');
+}]);
+})();
+
+(function(module) {
+try {
+  module = angular.module('templates');
+} catch (e) {
+  module = angular.module('templates', []);
+}
+module.run(['$templateCache', function($templateCache) {
+  $templateCache.put('modules/home/task-item/task-item.template.html',
+    '<md-list-item>\n' +
+    '    <section layout="column" layout-fill>\n' +
+    '        <div layout="row">\n' +
+    '            <!-- <md-checkbox class="checkbox" ng-model="task.done" aria-label="Task Done"></md-checkbox> -->\n' +
+    '            <div layout-padding>\n' +
+    '                <img ng-src="{{itemCtrl.task.image ? itemCtrl.task.image : \'../../../assets/images/no-image-icon.png\'}}" class="task-icon">\n' +
+    '            </div>\n' +
+    '            <div>\n' +
+    '                <h3> {{itemCtrl.task.name}} </h3>\n' +
+    '                <p> {{itemCtrl.task.date | date: "dd MMMM yyyy"}} </p>\n' +
+    '            </div>\n' +
+    '        </div>\n' +
+    '        <span flex></span>\n' +
+    '        <div>\n' +
+    '            <md-button ng-click="itemCtrl.showInfo(itemCtrl.task)" class="btn btn-info">\n' +
+    '                <md-icon class="material-icons">info</md-icon>\n' +
+    '            </md-button>\n' +
+    '            <md-button ng-click=\'itemCtrl.editTask(event, itemCtrl.task)\' class="btn btn-edit">\n' +
+    '                <md-icon class="material-icons">mode_edit</md-icon>\n' +
+    '            </md-button>\n' +
+    '            <md-button ng-click="itemCtrl.deleteTask()" class="btn btn-delete">\n' +
+    '                <md-icon class="material-icons">delete_forever</md-icon>\n' +
+    '            </md-button>\n' +
+    '        </div>\n' +
+    '    </section>\n' +
+    '    <md-divider></md-divider>\n' +
+    '</md-list-item>');
 }]);
 })();

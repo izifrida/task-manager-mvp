@@ -1,34 +1,23 @@
 (function() {
     'use strict';
 
-    HomeController.$inject = ["$scope", "$state", "$mdDialog", "homeService", "userService"];
+    taskItemController.$inject = ["$scope", "$state", "$mdDialog", "homeService", "userService"];
     angular
-        .module('home')
+        .module('taskItem')
 
-        .controller('homeController', HomeController);
+        .controller('taskItemController', taskItemController);
 
     /**@ngInject*/
-    function HomeController($scope, $state, $mdDialog, homeService, userService) {
+    function taskItemController($scope, $state, $mdDialog, homeService, userService) {
         var self = this;
-        self.tasks = homeService.getTasks();
-        self.delateTask = delateTask;
         self.showInfo = showInfo;
-        self.addTask = addTask;
         self.editTask = editTask;
-        self.keyword = homeService.getKeyword();
+        self.deleteTask = deleteTask; 
 
-        $scope.$watch(function() {
-            return homeService.getKeyword()
-        }, function(newValue, oldValue) {
-            if (newValue !== oldValue) {
-                self.keyword = newValue;
-            }
-        });
-
-
-        function delateTask(task) {
-            homeService.delateTask(task);
-        };
+        function deleteTask(){
+            console.log('hello ', self.task);
+            homeService.delateTask(self.task);
+        }
 
         function showInfo(task) {
             var textDetail = task.info;
@@ -49,14 +38,6 @@
                     .ok('Ok!')
                 );
             }
-        };
-
-        function addTask(ev) {
-            $mdDialog.show({
-                controller: 'addController as add',
-                templateUrl: "modules/add/add.template.html",
-                parent: angular.element(document.body),
-            })
         };
 
         function editTask(ev, updatingTask) {
